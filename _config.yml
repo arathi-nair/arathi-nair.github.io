@@ -1,0 +1,14 @@
+title: Arathi Nair
+description: Annual review page for managers — contributions, projects, and impact.
+url: "https://arathi-nair.github.io"
+
+github_username: arathi-nair
+
+# Don't use a remote theme — we have a custom layout
+theme: null
+
+# Keep these out of the build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md

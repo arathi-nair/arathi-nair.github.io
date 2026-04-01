@@ -1,0 +1,59 @@
+---
+layout: default
+title: GitHub Activity
+vendor_styles:
+  - https://cdn.jsdelivr.net/npm/ag-grid-community@32.2.2/styles/ag-grid.min.css
+  - https://cdn.jsdelivr.net/npm/ag-grid-community@32.2.2/styles/ag-theme-alpine.min.css
+vendor_scripts:
+  - https://cdn.jsdelivr.net/npm/ag-grid-community@32.2.2/dist/ag-grid-community.min.js
+scripts:
+  - /js/github-activity.js
+---
+
+<div class="page-header">
+  <h1>GitHub Activity</h1>
+  <p id="data-timestamp">Loading…</p>
+</div>
+
+<div class="stat-bar">
+  <div class="stat commits">
+    <div class="stat-num" id="stat-commits">—</div>
+    <div class="stat-label">Commits</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num" id="stat-prs">—</div>
+    <div class="stat-label">Pull Requests</div>
+  </div>
+  <div class="stat merged">
+    <div class="stat-num" id="stat-merged">—</div>
+    <div class="stat-label">PRs Merged</div>
+  </div>
+  <div class="stat reviews">
+    <div class="stat-num" id="stat-reviews">—</div>
+    <div class="stat-label">Reviews Given</div>
+  </div>
+</div>
+
+<div class="tabs" role="tablist">
+  <button class="tab-btn active" data-tab="commits" role="tab">
+    Commits <span class="count" id="cnt-commits">…</span>
+  </button>
+  <button class="tab-btn" data-tab="prs" role="tab">
+    Pull Requests <span class="count" id="cnt-prs">…</span>
+  </button>
+  <button class="tab-btn" data-tab="reviews" role="tab">
+    Reviews <span class="count" id="cnt-reviews">…</span>
+  </button>
+</div>
+
+<div id="panel-commits" class="tab-panel active">
+  <div id="grid-commits" class="ag-theme-alpine-dark grid-container"></div>
+</div>
+
+<div id="panel-prs" class="tab-panel">
+  <div id="grid-prs" class="ag-theme-alpine-dark grid-container"></div>
+</div>
+
+<div id="panel-reviews" class="tab-panel">
+  <div id="grid-reviews" class="ag-theme-alpine-dark grid-container"></div>
+</div>
