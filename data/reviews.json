@@ -1,0 +1,140 @@
+{
+  "generated_at": "2026-04-01T13:06:26.243Z",
+  "reviews": [
+    {
+      "date": "2026-03-31",
+      "pr_number": 334,
+      "pr_title": "PS-1541: use account expires_at as Mambu rate change effective date",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/334#pullrequestreview-4035373330"
+    },
+    {
+      "date": "2026-03-30",
+      "pr_number": 328,
+      "pr_title": "refactor: code cleanup around boost expiry",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/328#pullrequestreview-4030282632"
+    },
+    {
+      "date": "2026-03-30",
+      "pr_number": 325,
+      "pr_title": "refactor: Replace hardcoded MambuAccountState values with an enum",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/325#pullrequestreview-4029772000"
+    },
+    {
+      "date": "2026-03-30",
+      "pr_number": 324,
+      "pr_title": "PS-1552: send SNS only for ACTIVE accounts in expire bonus rates lambda",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/324#pullrequestreview-4029104713"
+    },
+    {
+      "date": "2026-03-30",
+      "pr_number": 322,
+      "pr_title": "PS-1552: send email for boost expiry of individual account",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/322#pullrequestreview-4028646560"
+    },
+    {
+      "date": "2026-03-27",
+      "pr_number": 315,
+      "pr_title": "PS-1552: wire ps_boost_expired SNS event into expire bonus rates lambda",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "pr_author": "utkarshoaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/315#pullrequestreview-4020680241"
+    },
+    {
+      "date": "2026-03-26",
+      "pr_number": 312,
+      "pr_title": "PS-1552: add SNS publish helper, Mambu customer fetch, and unit tests",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/312#pullrequestreview-4015419432"
+    },
+    {
+      "date": "2026-03-26",
+      "pr_number": 311,
+      "pr_title": "PS-1552: boost expiry reminder lambda stub + EventBridge trigger",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/311#pullrequestreview-4012974765"
+    },
+    {
+      "date": "2026-03-26",
+      "pr_number": 3749,
+      "pr_title": "PS-1545: add confirmation modal before triggering boost expiry",
+      "repo": "oaknorthbank/operations-dashboard",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/operations-dashboard/pull/3749#pullrequestreview-4011960797"
+    },
+    {
+      "date": "2026-03-26",
+      "pr_number": 3745,
+      "pr_title": "PS-1545: improve Overdue Boosts jobs tab UI",
+      "repo": "oaknorthbank/operations-dashboard",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/operations-dashboard/pull/3745#pullrequestreview-4011507807"
+    },
+    {
+      "date": "2026-03-25",
+      "pr_number": 3742,
+      "pr_title": "PS-1709: add remove boost button on Accounts tab",
+      "repo": "oaknorthbank/operations-dashboard",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/operations-dashboard/pull/3742#pullrequestreview-4005020423"
+    },
+    {
+      "date": "2026-03-24",
+      "pr_number": 310,
+      "pr_title": "PS-1545: add remove boost endpoint for individual accounts",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/310#pullrequestreview-3998577110"
+    },
+    {
+      "date": "2026-03-24",
+      "pr_number": 185,
+      "pr_title": "PS-1709: bump prod version",
+      "repo": "oaknorthbank/deposits-transactional-portal-job",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/deposits-transactional-portal-job/pull/185#pullrequestreview-3997550170"
+    },
+    {
+      "date": "2026-03-23",
+      "pr_number": 184,
+      "pr_title": "Revert \"PS-1709: bump prod docker_version to 6.2.87\"",
+      "repo": "oaknorthbank/deposits-transactional-portal-job",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/deposits-transactional-portal-job/pull/184#pullrequestreview-3991920573"
+    },
+    {
+      "date": "2026-03-23",
+      "pr_number": 183,
+      "pr_title": "PS-1709: bump prod docker_version to 6.2.87",
+      "repo": "oaknorthbank/deposits-transactional-portal-job",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/deposits-transactional-portal-job/pull/183#pullrequestreview-3991615374"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "generated_at": "2026-04-01T13:06:22.598Z",
+  "commits": [
+    {
+      "sha": "ff63cc2",
+      "message": "chore: add .gitkeep to preserve empty data directory",
+      "date": "2026-04-01",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/commit/ff63cc235660531cd89315c7e164bc718fa485dd"
+    },
+    {
+      "sha": "b45b2ae",
+      "message": "feat: replace paginated grid with infinite scroll table, remove aggregate cards",
+      "date": "2026-04-01",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/commit/b45b2ae7bdf72abc70b9881e43051ef4cbe4c09b"
+    },
+    {
+      "sha": "b9535c7",
+      "message": "docs: add CLAUDE.md with dev and coding guidelines",
+      "date": "2026-04-01",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/commit/b9535c7b84094c3a9e5bca31cf5e4819fe69a6f0"
+    },
+    {
+      "sha": "c3ef92b",
+      "message": "Add incremental scraper jobs",
+      "date": "2026-04-01",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/commit/c3ef92b4b2a720592762f81b0d880499b48dc1b4"
+    },
+    {
+      "sha": "d4ba70f",
+      "message": "feat: incremental scraping — resume from last known item",
+      "date": "2026-04-01",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/commit/d4ba70f5a170cb0e734c48e51a4ec565d882a018"
+    },
+    {
+      "sha": "21d7c29",
+      "message": "refactor: extract shared scraper constants to scripts/constants.js",
+      "date": "2026-04-01",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/commit/21d7c298f17fc296ab2558ec691749f83006bcd7"
+    },
+    {
+      "sha": "eb89da2",
+      "message": "feat: add PR and review scrapers, run all three in workflow",
+      "date": "2026-04-01",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/commit/eb89da244508e71eb3ad9598664e629c3f976af7"
+    },
+    {
+      "sha": "1f1d93f",
+      "message": "chore: clear dummy data, guard against null timestamps",
+      "date": "2026-04-01",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/commit/1f1d93f695525404e6745cf13bda12f6b8263f7d"
+    },
+    {
+      "sha": "9910d5f",
+      "message": "refactor: split github-activity.js by single responsibility",
+      "date": "2026-04-01",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/commit/9910d5fd60f8f2f4d0a7291e64097360aa47fc9f"
+    },
+    {
+      "sha": "0bdd9d3",
+      "message": "refactor: split activity data into one file per type",
+      "date": "2026-04-01",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/commit/0bdd9d3194cdaca86277ea5bc333abbc2bc06c3d"
+    },
+    {
+      "sha": "23864f7",
+      "message": "feat: add hourly workflow to scrape commit activity",
+      "date": "2026-04-01",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/commit/23864f73b41a361b2b90268f6d92b537eae24638"
+    },
+    {
+      "sha": "811c2ff",
+      "message": "feat: add personal site with GitHub Activity dashboard",
+      "date": "2026-04-01",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/commit/811c2ffbc01a2176c09fb6f011278cbae8360697"
+    },
+    {
+      "sha": "52798d6",
+      "message": "[PS-1767] Onboard agentic-toolkit (#343)",
+      "date": "2026-04-01",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/52798d64ce938277f404bb606bdb7ff866ef4ccb"
+    },
+    {
+      "sha": "5a6a42f",
+      "message": "Initial commit",
+      "date": "2026-04-01",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/commit/5a6a42f1e3c7196ce47b7fd4b96ea5d039fd3db9"
+    },
+    {
+      "sha": "194e8f0",
+      "message": "Update whitelisted_accounts_phone.py (#1991)",
+      "date": "2026-04-01",
+      "repo": "oaknorthbank/personal-savings-onboarding",
+      "url": "https://github.com/oaknorthbank/personal-savings-onboarding/commit/194e8f08d0758c3a57b44d573bee60d0d498a015"
+    },
+    {
+      "sha": "0f75a44",
+      "message": "PS-1541: use account expires_at as Mambu rate change effective date in remove_boost (#342)",
+      "date": "2026-04-01",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/0f75a447131301178bda74edc9b0ec5e154c5cd0"
+    },
+    {
+      "sha": "19d1345",
+      "message": "[PS-1553] Consolidate boost expiry SNS failure alerts (#336)",
+      "date": "2026-03-31",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/19d1345996bdc8b7f450135f8be92ab45fd29e42"
+    },
+    {
+      "sha": "bf18aaf",
+      "message": "[PS-1553] Extend Mambu/DB alarm coverage to remove_boost API path (#335)",
+      "date": "2026-03-31",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/bf18aafeaea20e793838aff98c59b2abca1ccae3"
+    },
+    {
+      "sha": "c0ecb9f",
+      "message": "[PS-1553] feat | boost expired notif: added alerts for mambu/db failures (#330)",
+      "date": "2026-03-31",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/c0ecb9fc1a174176b202009ca064aa9a4d9527c7"
+    },
+    {
+      "sha": "7dd811d",
+      "message": "[PS-1553] feat | adding alerts for failed comm events + activating alarm (#326)",
+      "date": "2026-03-30",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/7dd811d96c2c773ef1ccc1e0069473905d8ad86a"
+    },
+    {
+      "sha": "3496119",
+      "message": "[PS-1552] feat | add ps_boost_expiry_reminder handler to ps-email iterable consumer (#2237)",
+      "date": "2026-03-30",
+      "repo": "oaknorthbank/onb-outbound-customer-communication",
+      "url": "https://github.com/oaknorthbank/onb-outbound-customer-communication/commit/34961195894148377d76b3ac3255a89acaff660f"
+    },
+    {
+      "sha": "698acb8",
+      "message": "[PS-1552] feat | add BoostExpiryReminderEventData model and notification type (#2235)",
+      "date": "2026-03-30",
+      "repo": "oaknorthbank/onb-outbound-customer-communication",
+      "url": "https://github.com/oaknorthbank/onb-outbound-customer-communication/commit/698acb80399c0871f98e531b806dbbc4702fa0c6"
+    },
+    {
+      "sha": "f48efc1",
+      "message": "[PS-1552] feat | integrate SNS publish in boost-expiry-reminder lambda (#321)",
+      "date": "2026-03-30",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/f48efc1c05b888f92787b185d3e3e405c66e66a7"
+    },
+    {
+      "sha": "b29825a",
+      "message": "[PS-1552] feat | grant boost-expiry-reminder lambda DB, Secrets Manager, SNS, KMS and security group permissions (#320)",
+      "date": "2026-03-27",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/b29825a6bcec9f5d2db4a89a4b34558879b3aa64"
+    },
+    {
+      "sha": "c2a47bb",
+      "message": "[PS-1552] feat | boost-expiry lambda grant permissions (#319)",
+      "date": "2026-03-27",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/c2a47bb63b2d159382fb3f82214598c4e64b6298"
+    },
+    {
+      "sha": "960410e",
+      "message": "[PS-1552] feat | boost expiry reminder (#314)",
+      "date": "2026-03-27",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/960410e88402df2a2eba57413b76b1022234b215"
+    },
+    {
+      "sha": "deeddbf",
+      "message": "[PS-1552] mute lambda failure alarm temporarily (#313)",
+      "date": "2026-03-27",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/deeddbfa51e560b80777aeb46766abda90e242c5"
+    },
+    {
+      "sha": "cd67850",
+      "message": "[PS-1545] fix | added permission gate to access remove boost link in accounts tab  (#3754)",
+      "date": "2026-03-26",
+      "repo": "oaknorthbank/operations-dashboard",
+      "url": "https://github.com/oaknorthbank/operations-dashboard/commit/cd6785065e2748c0e29b3220aafa421dd282a241"
+    },
+    {
+      "sha": "abf572e",
+      "message": "[PS-1545] feat | added remove boost confirmation modal to accounts tab (#3744)",
+      "date": "2026-03-25",
+      "repo": "oaknorthbank/operations-dashboard",
+      "url": "https://github.com/oaknorthbank/operations-dashboard/commit/abf572e30993a1743e7aaaa1f1ecca332fb00f6d"
+    },
+    {
+      "sha": "9eab28b",
+      "message": "Chore: Remove skipped trello job (#3731)",
+      "date": "2026-03-20",
+      "repo": "oaknorthbank/operations-dashboard",
+      "url": "https://github.com/oaknorthbank/operations-dashboard/commit/9eab28b90e42c78876d1ce7abc73c10f3842925a"
+    }
+  ]
+}

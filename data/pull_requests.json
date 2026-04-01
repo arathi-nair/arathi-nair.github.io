@@ -1,0 +1,247 @@
+{
+  "generated_at": "2026-04-01T13:06:25.516Z",
+  "pull_requests": [
+    {
+      "number": 1,
+      "title": "feat: incremental scraping — resume from last known item",
+      "repo": "arathi-nair/arathi-nair.github.io",
+      "state": "merged",
+      "created_at": "2026-04-01",
+      "merged_at": "2026-04-01",
+      "closed_at": "2026-04-01",
+      "comments": 0,
+      "url": "https://github.com/arathi-nair/arathi-nair.github.io/pull/1"
+    },
+    {
+      "number": 343,
+      "title": "[PS-1767] Onboard agentic-toolkit",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-04-01",
+      "merged_at": "2026-04-01",
+      "closed_at": "2026-04-01",
+      "comments": 7,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/343"
+    },
+    {
+      "number": 1991,
+      "title": "Update whitelisted_accounts_phone.py",
+      "repo": "oaknorthbank/personal-savings-onboarding",
+      "state": "merged",
+      "created_at": "2026-04-01",
+      "merged_at": "2026-04-01",
+      "closed_at": "2026-04-01",
+      "comments": 1,
+      "url": "https://github.com/oaknorthbank/personal-savings-onboarding/pull/1991"
+    },
+    {
+      "number": 342,
+      "title": "PS-1541: use account expires_at as Mambu rate change effective date in remove_boost",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-04-01",
+      "merged_at": "2026-04-01",
+      "closed_at": "2026-04-01",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/342"
+    },
+    {
+      "number": 341,
+      "title": "[PS-1553] TESTING ONLY: disable Mambu rate updates to trigger CloudWatch alarms",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "open",
+      "created_at": "2026-04-01",
+      "merged_at": null,
+      "closed_at": null,
+      "comments": 3,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/341"
+    },
+    {
+      "number": 338,
+      "title": "[PS-1553] TEST: CloudWatch SNS alarm validation — boost expiry reminder",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "open",
+      "created_at": "2026-04-01",
+      "merged_at": null,
+      "closed_at": null,
+      "comments": 3,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/338"
+    },
+    {
+      "number": 336,
+      "title": "[PS-1553] Consolidate boost expiry SNS failure alerts",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-03-31",
+      "merged_at": "2026-03-31",
+      "closed_at": "2026-03-31",
+      "comments": 3,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/336"
+    },
+    {
+      "number": 335,
+      "title": "[PS-1553] Extend Mambu/DB alarm coverage to remove_boost API path",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-03-31",
+      "merged_at": "2026-03-31",
+      "closed_at": "2026-03-31",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/335"
+    },
+    {
+      "number": 333,
+      "title": "[PS-1553] feat | update boost expiry reminder lambda to daily cron schedule",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "open",
+      "created_at": "2026-03-31",
+      "merged_at": null,
+      "closed_at": null,
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/333"
+    },
+    {
+      "number": 330,
+      "title": "[PS-1553] feat | boost expiry alerts for Mambu/DB failures",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-03-30",
+      "merged_at": "2026-03-31",
+      "closed_at": "2026-03-31",
+      "comments": 1,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/330"
+    },
+    {
+      "number": 326,
+      "title": "[PS-1553] feat | adding alerts for failed comm events + activating alarm",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-03-30",
+      "merged_at": "2026-03-30",
+      "closed_at": "2026-03-30",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/326"
+    },
+    {
+      "number": 2237,
+      "title": "[PS-1552] feat | add ps_boost_expiry_reminder handler to ps-email iterable consumer",
+      "repo": "oaknorthbank/onb-outbound-customer-communication",
+      "state": "merged",
+      "created_at": "2026-03-30",
+      "merged_at": "2026-03-30",
+      "closed_at": "2026-03-30",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/onb-outbound-customer-communication/pull/2237"
+    },
+    {
+      "number": 2235,
+      "title": "[PS-1552] feat | add BoostExpiryReminderEventData model and notification type",
+      "repo": "oaknorthbank/onb-outbound-customer-communication",
+      "state": "merged",
+      "created_at": "2026-03-30",
+      "merged_at": "2026-03-30",
+      "closed_at": "2026-03-30",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/onb-outbound-customer-communication/pull/2235"
+    },
+    {
+      "number": 2234,
+      "title": "[PS-1552] feat | add ps_boost_expiry_reminder handler to ps-email iterable consumer",
+      "repo": "oaknorthbank/onb-outbound-customer-communication",
+      "state": "open",
+      "created_at": "2026-03-30",
+      "merged_at": null,
+      "closed_at": null,
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/onb-outbound-customer-communication/pull/2234"
+    },
+    {
+      "number": 321,
+      "title": "[PS-1552] feat | integrate SNS publish in boost-expiry-reminder lambda",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-03-30",
+      "merged_at": "2026-03-30",
+      "closed_at": "2026-03-30",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/321"
+    },
+    {
+      "number": 320,
+      "title": "[PS-1552] feat | grant IAM permissions boost-expiry-reminder lambda ",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-03-27",
+      "merged_at": "2026-03-27",
+      "closed_at": "2026-03-27",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/320"
+    },
+    {
+      "number": 319,
+      "title": "[PS-1552] feat | boost-expiry lambda grant permissions",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-03-27",
+      "merged_at": "2026-03-27",
+      "closed_at": "2026-03-27",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/319"
+    },
+    {
+      "number": 314,
+      "title": "[PS-1552] feat | boost expiry reminder",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-03-27",
+      "merged_at": "2026-03-27",
+      "closed_at": "2026-03-27",
+      "comments": 17,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/314"
+    },
+    {
+      "number": 313,
+      "title": "[PS-1552] mute lambda failure alarm temporarily",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-03-27",
+      "merged_at": "2026-03-27",
+      "closed_at": "2026-03-27",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/313"
+    },
+    {
+      "number": 3754,
+      "title": "[PS-1545] fix | added permission gate to access remove boost link in accounts tab ",
+      "repo": "oaknorthbank/operations-dashboard",
+      "state": "merged",
+      "created_at": "2026-03-26",
+      "merged_at": "2026-03-26",
+      "closed_at": "2026-03-26",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/operations-dashboard/pull/3754"
+    },
+    {
+      "number": 3744,
+      "title": "[PS-1545] feat | added remove boost confirmation modal to accounts tab",
+      "repo": "oaknorthbank/operations-dashboard",
+      "state": "merged",
+      "created_at": "2026-03-25",
+      "merged_at": "2026-03-25",
+      "closed_at": "2026-03-25",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/operations-dashboard/pull/3744"
+    },
+    {
+      "number": 3731,
+      "title": "Chore: Remove skipped trello job",
+      "repo": "oaknorthbank/operations-dashboard",
+      "state": "merged",
+      "created_at": "2026-03-20",
+      "merged_at": "2026-03-20",
+      "closed_at": "2026-03-20",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/operations-dashboard/pull/3731"
+    }
+  ]
+}
