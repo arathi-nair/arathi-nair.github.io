@@ -2,7 +2,7 @@ name: Scrape GitHub Activity
 
 on:
   schedule:
-    - cron: '0 * * * *'   # every hour — minimum useful cadence for personal activity
+    - cron: '0 * * * *'   # every hour
   workflow_dispatch:       # allow manual runs from the Actions tab
 
 concurrency:
@@ -15,6 +15,10 @@ jobs:
     permissions:
       contents: write      # needed to push the updated JSON back to the repo
 
+    env:
+      GH_PAT:          ${{ secrets.GH_PAT }}
+      GITHUB_USERNAME: arathi-nair
+
     steps:
       - uses: actions/checkout@v4
 
@@ -23,16 +27,19 @@ jobs:
           node-version: '20'  # fetch is stable in Node 18+, no extra deps needed
 
       - name: Scrape commits
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-          GITHUB_USERNAME: arathi-nair
         run: node scripts/scrape-commits.js
+
+      - name: Scrape pull requests
+        run: node scripts/scrape-prs.js
+
+      - name: Scrape reviews
+        run: node scripts/scrape-reviews.js
 
       - name: Commit and push if data changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/commits.json
+          git add data/commits.json data/pull_requests.json data/reviews.json
           git diff --staged --quiet && echo "No changes, skipping commit." && exit 0
-          git commit -m "chore: update commits snapshot [skip ci]"
+          git commit -m "chore: update activity snapshot [skip ci]"
           git push

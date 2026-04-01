@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Scrapes all commits authored by GITHUB_USERNAME via the GitHub Search API
-// and writes them to data/github_activity.json.
+// and writes them to data/commits.json.
 //
 // Requires: Node 18+ (uses built-in fetch), no npm install needed.
 // Env vars:
