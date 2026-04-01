@@ -27,11 +27,11 @@ function updateStats(commits, pullRequests, reviews) {
 }
 
 function updateTimestamp(...datasets) {
-  const latest = datasets
-    .map(d => new Date(d.generated_at))
-    .reduce((a, b) => (a > b ? a : b));
-  document.getElementById('data-timestamp').textContent =
-    `Data snapshot · last updated ${latest.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+  const timestamps = datasets.map(d => d.generated_at).filter(Boolean);
+  const el = document.getElementById('data-timestamp');
+  if (!timestamps.length) { el.textContent = 'Data snapshot · not yet populated'; return; }
+  const latest = timestamps.map(t => new Date(t)).reduce((a, b) => (a > b ? a : b));
+  el.textContent = `Data snapshot · last updated ${latest.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
 }
 
 async function init() {
