@@ -1,16 +1,14 @@
 #!/usr/bin/env node
-// Scrapes all pull request reviews given by GITHUB_USERNAME via the GitHub GraphQL API
-// and writes them to data/reviews.json.
-//
-// Uses GraphQL because there is no REST endpoint for "reviews I've given across all repos".
-// Covers a rolling 365-day window (GitHub's contributionsCollection max is 366 days).
+// Scrapes reviews given by GITHUB_USERNAME and appends new ones to data/reviews.json.
+// On first run covers a rolling 365-day window; subsequent runs fetch only reviews
+// submitted after the most recent entry already in the file.
 //
 // Requires: Node 18+ (uses built-in fetch), no npm install needed.
 // Env vars:
 //   GH_PAT           — Personal Access Token (read:user + public_repo scopes)
 //   GITHUB_USERNAME  — GitHub username to scrape
 
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath }    from 'node:url';
 import {
@@ -30,9 +28,6 @@ const USERNAME = process.env.GITHUB_USERNAME;
 
 if (!TOKEN)    throw new Error('GH_PAT env var is required');
 if (!USERNAME) throw new Error('GITHUB_USERNAME env var is required');
-
-const DATE_TO   = new Date().toISOString();
-const DATE_FROM = new Date(Date.now() - ROLLING_WINDOW_DAYS * 24 * 60 * 60 * 1000).toISOString();
 
 // ── GitHub GraphQL helper ─────────────────────────────────────────────────────
 
@@ -97,17 +92,18 @@ const QUERY = `
 
 // ── Scrape ────────────────────────────────────────────────────────────────────
 
-async function fetchReviews() {
-  const reviews = [];
+async function fetchNewReviews(dateFrom, existingUrls) {
+  const dateTo  = new Date().toISOString();
+  const newReviews = [];
   let cursor = null;
 
-  console.log(`Fetching reviews for ${USERNAME} (${DATE_FROM.slice(0, 10)} → ${DATE_TO.slice(0, 10)})…`);
+  console.log(`Fetching reviews for ${USERNAME} from ${dateFrom.slice(0, 10)}…`);
 
   do {
     const data = await ghGraphQL(QUERY, {
       login: USERNAME,
-      from:  DATE_FROM,
-      to:    DATE_TO,
+      from:  dateFrom,
+      to:    dateTo,
       after: cursor,
     });
 
@@ -117,10 +113,10 @@ async function fetchReviews() {
       const review = contrib.pullRequestReview;
       const pr     = review.pullRequest;
 
-      // Skip reviews left on your own PRs
-      if (pr.author?.login === USERNAME) continue;
+      if (pr.author?.login === USERNAME) continue;  // skip own PRs
+      if (existingUrls.has(review.url))  continue;  // already stored
 
-      reviews.push({
+      newReviews.push({
         date:      contrib.occurredAt.slice(0, 10),
         pr_number: pr.number,
         pr_title:  pr.title,
@@ -131,26 +127,38 @@ async function fetchReviews() {
       });
     }
 
-    console.log(`  page: ${page.nodes.length} reviews (${reviews.length} total)`);
+    console.log(`  page: ${page.nodes.length} fetched, ${newReviews.length} new so far`);
 
     cursor = page.pageInfo.hasNextPage ? page.pageInfo.endCursor : null;
     if (cursor) await sleep(GRAPHQL_DELAY_MS);
   } while (cursor);
 
-  return reviews;
+  return newReviews;
 }
 
-// ── Write ─────────────────────────────────────────────────────────────────────
+// ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
-  const reviews = await fetchReviews();
+  let existing = { reviews: [] };
+  try { existing = JSON.parse(readFileSync(OUT_PATH, 'utf8')); } catch {}
 
-  writeFileSync(OUT_PATH, JSON.stringify({
+  // Start from the most recent review date already stored, or fall back to
+  // a rolling window for the first run
+  const dateFrom = existing.reviews[0]?.date
+    ? new Date(existing.reviews[0].date).toISOString()
+    : new Date(Date.now() - ROLLING_WINDOW_DAYS * 24 * 60 * 60 * 1000).toISOString();
+
+  const existingUrls = new Set(existing.reviews.map(r => r.url));
+
+  const newReviews = await fetchNewReviews(dateFrom, existingUrls);
+
+  const output = {
     generated_at: new Date().toISOString(),
-    reviews,
-  }, null, 2));
+    reviews:      [...newReviews, ...existing.reviews],
+  };
 
-  console.log(`Done. Wrote ${reviews.length} reviews → ${OUT_PATH}`);
+  writeFileSync(OUT_PATH, JSON.stringify(output, null, 2));
+  console.log(`Done. ${newReviews.length} new reviews added (${output.reviews.length} total) → ${OUT_PATH}`);
 }
 
 main().catch(err => { console.error(err.message); process.exit(1); });

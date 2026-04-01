@@ -1,13 +1,14 @@
 #!/usr/bin/env node
-// Scrapes all commits authored by GITHUB_USERNAME via the GitHub Search API
-// and writes them to data/commits.json.
+// Scrapes commits authored by GITHUB_USERNAME and appends new ones to data/commits.json.
+// On first run fetches everything available; subsequent runs fetch only commits
+// newer than the most recent entry already in the file.
 //
 // Requires: Node 18+ (uses built-in fetch), no npm install needed.
 // Env vars:
 //   GH_PAT           — Personal Access Token (read:user + public_repo scopes)
 //   GITHUB_USERNAME  — GitHub username to scrape
 
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath }    from 'node:url';
 import {
@@ -16,7 +17,6 @@ import {
   ACCEPT_COMMITS,
   SEARCH_COMMITS_URL,
   SEARCH_PAGE_SIZE,
-  SEARCH_MAX_RESULTS,
   SEARCH_DELAY_MS,
   sleep,
 } from './constants.js';
@@ -53,13 +53,17 @@ async function ghGet(url) {
 
 // ── Scrape ────────────────────────────────────────────────────────────────────
 
-async function fetchCommits() {
-  const commits = [];
+async function fetchNewCommits(sinceDate, existingShas) {
+  const newCommits = [];
   let page = 1;
+  let done = false;
 
-  console.log(`Fetching commits for ${USERNAME}…`);
+  console.log(sinceDate
+    ? `Fetching commits for ${USERNAME} newer than ${sinceDate}…`
+    : `Fetching all commits for ${USERNAME} (first run)…`
+  );
 
-  while (true) {
+  while (!done) {
     const url = [
       SEARCH_COMMITS_URL,
       `?q=author:${USERNAME}`,
@@ -70,37 +74,53 @@ async function fetchCommits() {
     const data = await ghGet(url);
 
     for (const item of data.items) {
-      commits.push({
-        sha:     item.sha.slice(0, 7),
-        message: item.commit.message.split('\n')[0],
-        date:    item.commit.committer.date.slice(0, 10),
-        repo:    item.repository.full_name,
-        url:     item.html_url,
-      });
+      const date = item.commit.committer.date.slice(0, 10);
+
+      // Items are sorted newest-first; once we're past the cutoff we're done
+      if (sinceDate && date < sinceDate) { done = true; break; }
+
+      const sha = item.sha.slice(0, 7);
+      if (!existingShas.has(sha)) {
+        newCommits.push({
+          sha,
+          message: item.commit.message.split('\n')[0],
+          date,
+          repo:    item.repository.full_name,
+          url:     item.html_url,
+        });
+      }
     }
 
-    console.log(`  page ${page}: ${data.items.length} commits (${commits.length} total)`);
+    console.log(`  page ${page}: ${data.items.length} fetched, ${newCommits.length} new so far`);
 
-    if (data.items.length < SEARCH_PAGE_SIZE || commits.length >= SEARCH_MAX_RESULTS) break;
+    if (data.items.length < SEARCH_PAGE_SIZE) break;
 
     page++;
     await sleep(SEARCH_DELAY_MS);
   }
 
-  return commits;
+  return newCommits;
 }
 
-// ── Write ─────────────────────────────────────────────────────────────────────
+// ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
-  const commits = await fetchCommits();
+  // Load existing data (empty shell on first run)
+  let existing = { commits: [] };
+  try { existing = JSON.parse(readFileSync(OUT_PATH, 'utf8')); } catch {}
 
-  writeFileSync(OUT_PATH, JSON.stringify({
+  const sinceDate   = existing.commits[0]?.date ?? null;
+  const existingShas = new Set(existing.commits.map(c => c.sha));
+
+  const newCommits = await fetchNewCommits(sinceDate, existingShas);
+
+  const output = {
     generated_at: new Date().toISOString(),
-    commits,
-  }, null, 2));
+    commits:      [...newCommits, ...existing.commits],
+  };
 
-  console.log(`Done. Wrote ${commits.length} commits → ${OUT_PATH}`);
+  writeFileSync(OUT_PATH, JSON.stringify(output, null, 2));
+  console.log(`Done. ${newCommits.length} new commits added (${output.commits.length} total) → ${OUT_PATH}`);
 }
 
 main().catch(err => { console.error(err.message); process.exit(1); });
