@@ -310,7 +310,6 @@ a:hover { text-decoration: underline; }
 
 /* ─── AG Grid container ─── */
 .grid-container {
-  height: 560px;
   width: 100%;
 }
 

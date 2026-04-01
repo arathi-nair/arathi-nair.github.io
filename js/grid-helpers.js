@@ -1,5 +1,3 @@
-import { PAGE_SIZE } from './constants.js';
-
 const { createGrid } = agGrid;
 
 export const DEFAULT_COL = {
@@ -10,14 +8,9 @@ export const DEFAULT_COL = {
 };
 
 export const SHARED_GRID_OPTIONS = {
-  defaultColDef:           DEFAULT_COL,
-  rowGroupPanelShow:       'always',
-  groupIncludeFooter:      true,
-  groupIncludeTotalFooter: true,
-  sideBar:                 { toolPanels: ['columns', 'filters'] },
-  animateRows:             true,
-  pagination:              true,
-  paginationPageSize:      PAGE_SIZE,
+  defaultColDef: DEFAULT_COL,
+  animateRows:   true,
+  domLayout:     'autoHeight',
 };
 
 export function makeGrid(elementId, columnDefs, rowData) {

@@ -15,12 +15,7 @@ function setupTabs() {
   });
 }
 
-function updateStats(commits, pullRequests, reviews) {
-  document.getElementById('stat-commits').textContent = commits.length;
-  document.getElementById('stat-prs').textContent     = pullRequests.length;
-  document.getElementById('stat-merged').textContent  = pullRequests.filter(pr => pr.state === 'merged').length;
-  document.getElementById('stat-reviews').textContent = reviews.length;
-
+function updateCounts(commits, pullRequests, reviews) {
   document.getElementById('cnt-commits').textContent = commits.length;
   document.getElementById('cnt-prs').textContent     = pullRequests.length;
   document.getElementById('cnt-reviews').textContent = reviews.length;
@@ -41,7 +36,7 @@ async function init() {
     fetch(REVIEWS_URL).then(r => r.json()),
   ]);
 
-  updateStats(commitsData.commits, pullRequestsData.pull_requests, reviewsData.reviews);
+  updateCounts(commitsData.commits, pullRequestsData.pull_requests, reviewsData.reviews);
   updateTimestamp(commitsData, pullRequestsData, reviewsData);
   setupTabs();
   initCommitsGrid(commitsData.commits);
