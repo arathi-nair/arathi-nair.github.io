@@ -13,8 +13,7 @@ export const SEARCH_COMMITS_URL = 'https://api.github.com/search/commits';
 export const SEARCH_ISSUES_URL  = 'https://api.github.com/search/issues';
 
 // Pagination
-export const SEARCH_PAGE_SIZE   = 100;
-export const SEARCH_MAX_RESULTS = 1000;   // GitHub Search API hard cap
+export const SEARCH_PAGE_SIZE = 100;
 
 // Rate-limit courtesy delays
 export const SEARCH_DELAY_MS  = 300;      // search API: 30 req/min with a PAT
