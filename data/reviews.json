@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-04-01T00:00:00Z",
+  "reviews": [
+    { "date": "2026-03-29", "pr_number": 431, "pr_title": "Add E2E tests with Playwright",               "repo": "org/frontend-app",  "pr_author": "jsmith",    "state": "approved",          "url": "https://github.com/org/frontend-app/pull/431"  },
+    { "date": "2026-03-27", "pr_number": 89,  "pr_title": "Switch streaming format to Arrow IPC",        "repo": "org/data-pipeline", "pr_author": "plee",      "state": "changes_requested", "url": "https://github.com/org/data-pipeline/pull/89"  },
+    { "date": "2026-03-21", "pr_number": 56,  "pr_title": "Add OIDC auth for CI pipelines",              "repo": "org/infra-tools",   "pr_author": "rmartinez", "state": "approved",          "url": "https://github.com/org/infra-tools/pull/56"   },
+    { "date": "2026-03-17", "pr_number": 397, "pr_title": "Lazy-load route components",                  "repo": "org/frontend-app",  "pr_author": "jsmith",    "state": "approved",          "url": "https://github.com/org/frontend-app/pull/397"  },
+    { "date": "2026-03-12", "pr_number": 379, "pr_title": "Add connection pool metrics endpoint",        "repo": "org/api-service",   "pr_author": "kwilson",   "state": "changes_requested", "url": "https://github.com/org/api-service/pull/379"   },
+    { "date": "2026-03-08", "pr_number": 55,  "pr_title": "Cost-tag all AWS resources via Terraform",    "repo": "org/infra-tools",   "pr_author": "rmartinez", "state": "approved",          "url": "https://github.com/org/infra-tools/pull/55"   },
+    { "date": "2026-03-04", "pr_number": 88,  "pr_title": "Deduplicate events with window function",     "repo": "org/data-pipeline", "pr_author": "plee",      "state": "approved",          "url": "https://github.com/org/data-pipeline/pull/88"  },
+    { "date": "2026-02-26", "pr_number": 404, "pr_title": "Upgrade to React 19 RC",                      "repo": "org/frontend-app",  "pr_author": "jsmith",    "state": "commented",         "url": "https://github.com/org/frontend-app/pull/404"  },
+    { "date": "2026-02-22", "pr_number": 374, "pr_title": "Enforce request schema validation at edge",   "repo": "org/api-service",   "pr_author": "kwilson",   "state": "approved",          "url": "https://github.com/org/api-service/pull/374"   },
+    { "date": "2026-02-17", "pr_number": 91,  "pr_title": "Add SLA tracking to pipeline DAGs",           "repo": "org/data-pipeline", "pr_author": "plee",      "state": "changes_requested", "url": "https://github.com/org/data-pipeline/pull/91"  },
+    { "date": "2026-02-12", "pr_number": 59,  "pr_title": "Automate AMI baking with Packer",             "repo": "org/infra-tools",   "pr_author": "rmartinez", "state": "approved",          "url": "https://github.com/org/infra-tools/pull/59"   },
+    { "date": "2026-02-08", "pr_number": 369, "pr_title": "Add idempotency keys to payment endpoints",   "repo": "org/api-service",   "pr_author": "kwilson",   "state": "approved",          "url": "https://github.com/org/api-service/pull/369"   },
+    { "date": "2026-01-28", "pr_number": 420, "pr_title": "Design system token audit and cleanup",       "repo": "org/frontend-app",  "pr_author": "jsmith",    "state": "commented",         "url": "https://github.com/org/frontend-app/pull/420"  },
+    { "date": "2026-01-22", "pr_number": 94,  "pr_title": "Optimize dbt model refresh scheduling",       "repo": "org/data-pipeline", "pr_author": "plee",      "state": "approved",          "url": "https://github.com/org/data-pipeline/pull/94"  },
+    { "date": "2026-01-16", "pr_number": 61,  "pr_title": "Set up private ECR with lifecycle policies",  "repo": "org/infra-tools",   "pr_author": "rmartinez", "state": "approved",          "url": "https://github.com/org/infra-tools/pull/61"   }
+  ]
+}

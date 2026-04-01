@@ -7,12 +7,12 @@
 //   GH_PAT           — Personal Access Token (read:user + public_repo scopes)
 //   GITHUB_USERNAME  — GitHub username to scrape
 
-import { writeFileSync, readFileSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
 import { resolve, dirname }            from 'node:path';
 import { fileURLToPath }               from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const OUT_PATH  = resolve(__dirname, '../data/github_activity.json');
+const OUT_PATH  = resolve(__dirname, '../data/commits.json');
 
 const TOKEN    = process.env.GH_PAT;
 const USERNAME = process.env.GITHUB_USERNAME;
@@ -86,20 +86,9 @@ async function fetchCommits() {
 async function main() {
   const commits = await fetchCommits();
 
-  // Preserve existing pull_requests and reviews so the file stays valid
-  // for the frontend while we haven't wired up those scrapers yet.
-  let existing = { pull_requests: [], reviews: [] };
-  try {
-    existing = JSON.parse(readFileSync(OUT_PATH, 'utf8'));
-  } catch {
-    // file doesn't exist yet — that's fine
-  }
-
   const output = {
-    generated_at:  new Date().toISOString(),
+    generated_at: new Date().toISOString(),
     commits,
-    pull_requests: existing.pull_requests ?? [],
-    reviews:       existing.reviews       ?? [],
   };
 
   writeFileSync(OUT_PATH, JSON.stringify(output, null, 2));

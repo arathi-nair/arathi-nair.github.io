@@ -1,9 +1,11 @@
 const { createGrid } = agGrid;
 
 // ── Constants ─────────────────────────────────────────────────────────────────
-const GITHUB_BASE_URL = 'https://github.com';
-const DATA_URL        = '/data/github_activity.json';
-const PAGE_SIZE       = 20;
+const GITHUB_BASE_URL    = 'https://github.com';
+const COMMITS_URL        = '/data/commits.json';
+const PULL_REQUESTS_URL  = '/data/pull_requests.json';
+const REVIEWS_URL        = '/data/reviews.json';
+const PAGE_SIZE          = 20;
 
 
 // ── Shared column defaults ────────────────────────────────────────────────────
@@ -271,31 +273,39 @@ function setupTabs() {
 }
 
 // ── Stats bar ─────────────────────────────────────────────────────────────────
-function updateStats(data) {
-  document.getElementById('stat-commits').textContent  = data.commits.length;
-  document.getElementById('stat-prs').textContent      = data.pull_requests.length;
-  document.getElementById('stat-merged').textContent   = data.pull_requests.filter(pr => pr.state === 'merged').length;
-  document.getElementById('stat-reviews').textContent  = data.reviews.length;
+function updateStats(commits, pullRequests, reviews) {
+  document.getElementById('stat-commits').textContent = commits.length;
+  document.getElementById('stat-prs').textContent     = pullRequests.length;
+  document.getElementById('stat-merged').textContent  = pullRequests.filter(pr => pr.state === 'merged').length;
+  document.getElementById('stat-reviews').textContent = reviews.length;
 
-  document.getElementById('cnt-commits').textContent = data.commits.length;
-  document.getElementById('cnt-prs').textContent     = data.pull_requests.length;
-  document.getElementById('cnt-reviews').textContent = data.reviews.length;
+  document.getElementById('cnt-commits').textContent = commits.length;
+  document.getElementById('cnt-prs').textContent     = pullRequests.length;
+  document.getElementById('cnt-reviews').textContent = reviews.length;
+}
 
-  const updatedAt = new Date(data.generated_at);
+function updateTimestamp(commitsData, pullRequestsData, reviewsData) {
+  const latest = [commitsData, pullRequestsData, reviewsData]
+    .map(d => new Date(d.generated_at))
+    .reduce((a, b) => (a > b ? a : b));
   document.getElementById('data-timestamp').textContent =
-    `Data snapshot · last updated ${updatedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+    `Data snapshot · last updated ${latest.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
 }
 
 // ── Bootstrap ─────────────────────────────────────────────────────────────────
 async function init() {
-  const res  = await fetch(DATA_URL);
-  const data = await res.json();
+  const [commitsData, pullRequestsData, reviewsData] = await Promise.all([
+    fetch(COMMITS_URL).then(r => r.json()),
+    fetch(PULL_REQUESTS_URL).then(r => r.json()),
+    fetch(REVIEWS_URL).then(r => r.json()),
+  ]);
 
-  updateStats(data);
+  updateStats(commitsData.commits, pullRequestsData.pull_requests, reviewsData.reviews);
+  updateTimestamp(commitsData, pullRequestsData, reviewsData);
   setupTabs();
-  initCommitsGrid(data.commits);
-  initPRsGrid(data.pull_requests);
-  initReviewsGrid(data.reviews);
+  initCommitsGrid(commitsData.commits);
+  initPRsGrid(pullRequestsData.pull_requests);
+  initReviewsGrid(reviewsData.reviews);
 }
 
 init().catch(err => console.error('Failed to load GitHub activity data:', err));
