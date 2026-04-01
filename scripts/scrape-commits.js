@@ -8,8 +8,18 @@
 //   GITHUB_USERNAME  — GitHub username to scrape
 
 import { writeFileSync } from 'node:fs';
-import { resolve, dirname }            from 'node:path';
-import { fileURLToPath }               from 'node:url';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath }    from 'node:url';
+import {
+  GH_API_VERSION,
+  USER_AGENT,
+  ACCEPT_COMMITS,
+  SEARCH_COMMITS_URL,
+  SEARCH_PAGE_SIZE,
+  SEARCH_MAX_RESULTS,
+  SEARCH_DELAY_MS,
+  sleep,
+} from './constants.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH  = resolve(__dirname, '../data/commits.json');
@@ -20,15 +30,15 @@ const USERNAME = process.env.GITHUB_USERNAME;
 if (!TOKEN)    throw new Error('GH_PAT env var is required');
 if (!USERNAME) throw new Error('GITHUB_USERNAME env var is required');
 
-// ── GitHub API helper ────────────────────────────────────────────────────────
+// ── GitHub API helper ─────────────────────────────────────────────────────────
 
 async function ghGet(url) {
   const res = await fetch(url, {
     headers: {
-      Authorization:        `Bearer ${TOKEN}`,
-      Accept:               'application/vnd.github.cloak-preview+json',
-      'X-GitHub-Api-Version': '2022-11-28',
-      'User-Agent':         'github-activity-scraper',
+      Authorization:          `Bearer ${TOKEN}`,
+      Accept:                 ACCEPT_COMMITS,
+      'X-GitHub-Api-Version': GH_API_VERSION,
+      'User-Agent':           USER_AGENT,
     },
   });
 
@@ -41,7 +51,7 @@ async function ghGet(url) {
   return res.json();
 }
 
-// ── Scrape ───────────────────────────────────────────────────────────────────
+// ── Scrape ────────────────────────────────────────────────────────────────────
 
 async function fetchCommits() {
   const commits = [];
@@ -51,10 +61,10 @@ async function fetchCommits() {
 
   while (true) {
     const url = [
-      'https://api.github.com/search/commits',
+      SEARCH_COMMITS_URL,
       `?q=author:${USERNAME}`,
       `&sort=committer-date&order=desc`,
-      `&per_page=100&page=${page}`,
+      `&per_page=${SEARCH_PAGE_SIZE}&page=${page}`,
     ].join('');
 
     const data = await ghGet(url);
@@ -62,7 +72,7 @@ async function fetchCommits() {
     for (const item of data.items) {
       commits.push({
         sha:     item.sha.slice(0, 7),
-        message: item.commit.message.split('\n')[0],   // subject line only
+        message: item.commit.message.split('\n')[0],
         date:    item.commit.committer.date.slice(0, 10),
         repo:    item.repository.full_name,
         url:     item.html_url,
@@ -71,30 +81,26 @@ async function fetchCommits() {
 
     console.log(`  page ${page}: ${data.items.length} commits (${commits.length} total)`);
 
-    // Search API hard cap is 1 000 results; stop when page is undersized
-    if (data.items.length < 100 || commits.length >= 1000) break;
+    if (data.items.length < SEARCH_PAGE_SIZE || commits.length >= SEARCH_MAX_RESULTS) break;
 
     page++;
-    await sleep(300); // stay well within the 30 search req/min rate limit
+    await sleep(SEARCH_DELAY_MS);
   }
 
   return commits;
 }
 
-// ── Write ────────────────────────────────────────────────────────────────────
+// ── Write ─────────────────────────────────────────────────────────────────────
 
 async function main() {
   const commits = await fetchCommits();
 
-  const output = {
+  writeFileSync(OUT_PATH, JSON.stringify({
     generated_at: new Date().toISOString(),
     commits,
-  };
+  }, null, 2));
 
-  writeFileSync(OUT_PATH, JSON.stringify(output, null, 2));
   console.log(`Done. Wrote ${commits.length} commits → ${OUT_PATH}`);
 }
-
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 main().catch(err => { console.error(err.message); process.exit(1); });

@@ -13,6 +13,14 @@
 import { writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath }    from 'node:url';
+import {
+  GH_API_VERSION,
+  USER_AGENT,
+  GRAPHQL_URL,
+  GRAPHQL_DELAY_MS,
+  ROLLING_WINDOW_DAYS,
+  sleep,
+} from './constants.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH  = resolve(__dirname, '../data/reviews.json');
@@ -23,20 +31,19 @@ const USERNAME = process.env.GITHUB_USERNAME;
 if (!TOKEN)    throw new Error('GH_PAT env var is required');
 if (!USERNAME) throw new Error('GITHUB_USERNAME env var is required');
 
-// Rolling 365-day window
 const DATE_TO   = new Date().toISOString();
-const DATE_FROM = new Date(Date.now() - 365 * 24 * 60 * 60 * 1000).toISOString();
+const DATE_FROM = new Date(Date.now() - ROLLING_WINDOW_DAYS * 24 * 60 * 60 * 1000).toISOString();
 
 // ── GitHub GraphQL helper ─────────────────────────────────────────────────────
 
 async function ghGraphQL(query, variables) {
-  const res = await fetch('https://api.github.com/graphql', {
+  const res = await fetch(GRAPHQL_URL, {
     method:  'POST',
     headers: {
       Authorization:          `Bearer ${TOKEN}`,
       'Content-Type':         'application/json',
-      'X-GitHub-Api-Version': '2022-11-28',
-      'User-Agent':           'github-activity-scraper',
+      'X-GitHub-Api-Version': GH_API_VERSION,
+      'User-Agent':           USER_AGENT,
     },
     body: JSON.stringify({ query, variables }),
   });
@@ -114,20 +121,20 @@ async function fetchReviews() {
       if (pr.author?.login === USERNAME) continue;
 
       reviews.push({
-        date:       contrib.occurredAt.slice(0, 10),
-        pr_number:  pr.number,
-        pr_title:   pr.title,
-        repo:       pr.repository.nameWithOwner,
-        pr_author:  pr.author?.login ?? 'ghost',
-        state:      REVIEW_STATE_MAP[review.state] ?? 'commented',
-        url:        review.url,
+        date:      contrib.occurredAt.slice(0, 10),
+        pr_number: pr.number,
+        pr_title:  pr.title,
+        repo:      pr.repository.nameWithOwner,
+        pr_author: pr.author?.login ?? 'ghost',
+        state:     REVIEW_STATE_MAP[review.state] ?? 'commented',
+        url:       review.url,
       });
     }
 
     console.log(`  page: ${page.nodes.length} reviews (${reviews.length} total)`);
 
     cursor = page.pageInfo.hasNextPage ? page.pageInfo.endCursor : null;
-    if (cursor) await sleep(200);
+    if (cursor) await sleep(GRAPHQL_DELAY_MS);
   } while (cursor);
 
   return reviews;
@@ -145,7 +152,5 @@ async function main() {
 
   console.log(`Done. Wrote ${reviews.length} reviews → ${OUT_PATH}`);
 }
-
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 main().catch(err => { console.error(err.message); process.exit(1); });

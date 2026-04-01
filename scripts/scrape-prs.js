@@ -10,6 +10,16 @@
 import { writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath }    from 'node:url';
+import {
+  GH_API_VERSION,
+  USER_AGENT,
+  ACCEPT_JSON,
+  SEARCH_ISSUES_URL,
+  SEARCH_PAGE_SIZE,
+  SEARCH_MAX_RESULTS,
+  SEARCH_DELAY_MS,
+  sleep,
+} from './constants.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH  = resolve(__dirname, '../data/pull_requests.json');
@@ -26,9 +36,9 @@ async function ghGet(url) {
   const res = await fetch(url, {
     headers: {
       Authorization:          `Bearer ${TOKEN}`,
-      Accept:                 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28',
-      'User-Agent':           'github-activity-scraper',
+      Accept:                 ACCEPT_JSON,
+      'X-GitHub-Api-Version': GH_API_VERSION,
+      'User-Agent':           USER_AGENT,
     },
   });
 
@@ -64,10 +74,10 @@ async function fetchPullRequests() {
 
   while (true) {
     const url = [
-      'https://api.github.com/search/issues',
+      SEARCH_ISSUES_URL,
       `?q=author:${USERNAME}+is:pr`,
       `&sort=created&order=desc`,
-      `&per_page=100&page=${page}`,
+      `&per_page=${SEARCH_PAGE_SIZE}&page=${page}`,
     ].join('');
 
     const data = await ghGet(url);
@@ -88,10 +98,10 @@ async function fetchPullRequests() {
 
     console.log(`  page ${page}: ${data.items.length} PRs (${pullRequests.length} total)`);
 
-    if (data.items.length < 100 || pullRequests.length >= 1000) break;
+    if (data.items.length < SEARCH_PAGE_SIZE || pullRequests.length >= SEARCH_MAX_RESULTS) break;
 
     page++;
-    await sleep(300);
+    await sleep(SEARCH_DELAY_MS);
   }
 
   return pullRequests;
@@ -109,7 +119,5 @@ async function main() {
 
   console.log(`Done. Wrote ${pullRequests.length} pull requests → ${OUT_PATH}`);
 }
-
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 main().catch(err => { console.error(err.message); process.exit(1); });
