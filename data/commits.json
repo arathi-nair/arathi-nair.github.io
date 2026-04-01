@@ -1,6 +1,27 @@
 {
-  "generated_at": "2026-04-01T12:21:49.225Z",
+  "generated_at": "2026-04-01T12:35:33.482Z",
   "commits": [
+    {
+      "sha": "52798d6",
+      "message": "[PS-1767] Onboard agentic-toolkit (#343)",
+      "date": "2026-04-01",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/52798d64ce938277f404bb606bdb7ff866ef4ccb"
+    },
+    {
+      "sha": "194e8f0",
+      "message": "Update whitelisted_accounts_phone.py (#1991)",
+      "date": "2026-04-01",
+      "repo": "oaknorthbank/personal-savings-onboarding",
+      "url": "https://github.com/oaknorthbank/personal-savings-onboarding/commit/194e8f08d0758c3a57b44d573bee60d0d498a015"
+    },
+    {
+      "sha": "0f75a44",
+      "message": "PS-1541: use account expires_at as Mambu rate change effective date in remove_boost (#342)",
+      "date": "2026-04-01",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/0f75a447131301178bda74edc9b0ec5e154c5cd0"
+    },
     {
       "sha": "c3ef92b",
       "message": "Add incremental scraper jobs",

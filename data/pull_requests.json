@@ -1,6 +1,61 @@
 {
-  "generated_at": "2026-04-01T12:21:49.993Z",
+  "generated_at": "2026-04-01T12:35:34.489Z",
   "pull_requests": [
+    {
+      "number": 343,
+      "title": "[PS-1767] Onboard agentic-toolkit",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-04-01",
+      "merged_at": "2026-04-01",
+      "closed_at": "2026-04-01",
+      "comments": 7,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/343"
+    },
+    {
+      "number": 1991,
+      "title": "Update whitelisted_accounts_phone.py",
+      "repo": "oaknorthbank/personal-savings-onboarding",
+      "state": "merged",
+      "created_at": "2026-04-01",
+      "merged_at": "2026-04-01",
+      "closed_at": "2026-04-01",
+      "comments": 1,
+      "url": "https://github.com/oaknorthbank/personal-savings-onboarding/pull/1991"
+    },
+    {
+      "number": 342,
+      "title": "PS-1541: use account expires_at as Mambu rate change effective date in remove_boost",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-04-01",
+      "merged_at": "2026-04-01",
+      "closed_at": "2026-04-01",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/342"
+    },
+    {
+      "number": 341,
+      "title": "[PS-1553] TESTING ONLY: disable Mambu rate updates to trigger CloudWatch alarms",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "open",
+      "created_at": "2026-04-01",
+      "merged_at": null,
+      "closed_at": null,
+      "comments": 3,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/341"
+    },
+    {
+      "number": 338,
+      "title": "[PS-1553] TEST: CloudWatch SNS alarm validation — boost expiry reminder",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "open",
+      "created_at": "2026-04-01",
+      "merged_at": null,
+      "closed_at": null,
+      "comments": 3,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/338"
+    },
     {
       "number": 1,
       "title": "feat: incremental scraping — resume from last known item",
