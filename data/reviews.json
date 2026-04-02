@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-04-02T12:04:32.249Z",
+  "generated_at": "2026-04-02T16:13:41.559Z",
   "reviews": [
+    {
+      "date": "2026-04-02",
+      "pr_number": 60,
+      "pr_title": "PS-1825: Add scheduled Lambda to move overdue Mambu tasks to today's date",
+      "repo": "oaknorthbank/ps-backoffice",
+      "pr_author": "shivam-oaknorth",
+      "state": "approved",
+      "url": "https://github.com/oaknorthbank/ps-backoffice/pull/60#pullrequestreview-4051115166"
+    },
     {
       "date": "2026-03-31",
       "pr_number": 334,
