@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-04-03T05:50:52.353Z",
+  "generated_at": "2026-04-03T08:36:17.301Z",
   "commits": [
+    {
+      "sha": "f697560",
+      "message": "[PS-1545] chore | boost-expiry: amend confirmation modal message (#3807)",
+      "date": "2026-04-03",
+      "repo": "oaknorthbank/operations-dashboard",
+      "url": "https://github.com/oaknorthbank/operations-dashboard/commit/f6975603b1567f69f2b6cccb0c25200c1d31db1e"
+    },
+    {
+      "sha": "19060fb",
+      "message": "[PS-1771] chore | boost-expiry: dev comments for parallel implementations (batch and single account) (#345)",
+      "date": "2026-04-03",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/19060fb458f67c8178fa6c4444b3480ffc53b0b6"
+    },
     {
       "sha": "ff63cc2",
       "message": "chore: add .gitkeep to preserve empty data directory",
