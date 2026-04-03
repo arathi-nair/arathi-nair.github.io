@@ -1,6 +1,27 @@
 {
-  "generated_at": "2026-04-03T11:25:38.895Z",
+  "generated_at": "2026-04-03T14:28:04.440Z",
   "commits": [
+    {
+      "sha": "ff4966a",
+      "message": "[PS-1771] chore | revert alarm test exceptions, set boost-expiry-reminder cron to 9AM UTC (#350)",
+      "date": "2026-04-03",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/ff4966a37d8fece63b26a91ad2a3e8b014ab897e"
+    },
+    {
+      "sha": "c452568",
+      "message": "[PS-1771] test | boost-expiry pricingdb failure alarm test (#348)",
+      "date": "2026-04-03",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/c4525686d8b48444611103bd312af0bdfca6ed4c"
+    },
+    {
+      "sha": "d4c7cea",
+      "message": "[PS-1771] test | boost-expiry sns failure alarm (#347)",
+      "date": "2026-04-03",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/d4c7cea3ee278a6a1678f99c132bc37331326006"
+    },
     {
       "sha": "0f987c3",
       "message": "[PS-1771] test | boost-expiry mambu failure alarm test (#346)",

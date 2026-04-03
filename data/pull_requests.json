@@ -1,6 +1,39 @@
 {
-  "generated_at": "2026-04-03T11:25:39.986Z",
+  "generated_at": "2026-04-03T14:28:05.494Z",
   "pull_requests": [
+    {
+      "number": 351,
+      "title": "[PS-1771] fix | boost-expiry add ECS API log group to Mambu and DB failure alarms",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "open",
+      "created_at": "2026-04-03",
+      "merged_at": null,
+      "closed_at": null,
+      "comments": 3,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/351"
+    },
+    {
+      "number": 350,
+      "title": "[PS-1771] chore | revert alarm test exceptions, set boost-expiry-reminder cron",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-04-03",
+      "merged_at": "2026-04-03",
+      "closed_at": "2026-04-03",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/350"
+    },
+    {
+      "number": 348,
+      "title": "[PS-1771] test | boost-expiry pricingdb failure alarm test",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-04-03",
+      "merged_at": "2026-04-03",
+      "closed_at": "2026-04-03",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/348"
+    },
     {
       "number": 347,
       "title": "[PS-1771] test | boost-expiry sns failure alarm",
