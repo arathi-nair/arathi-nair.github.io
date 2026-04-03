@@ -1,6 +1,28 @@
 {
-  "generated_at": "2026-04-03T08:36:18.233Z",
+  "generated_at": "2026-04-03T11:25:39.986Z",
   "pull_requests": [
+    {
+      "number": 347,
+      "title": "[PS-1771] test | boost-expiry sns failure alarm",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "open",
+      "created_at": "2026-04-03",
+      "merged_at": null,
+      "closed_at": null,
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/347"
+    },
+    {
+      "number": 346,
+      "title": "[PS-1771] test | boost-expiry Mambu failure alarm test",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "state": "merged",
+      "created_at": "2026-04-03",
+      "merged_at": "2026-04-03",
+      "closed_at": "2026-04-03",
+      "comments": 2,
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/pull/346"
+    },
     {
       "number": 345,
       "title": "[PS-1771] chore: dev comments for parallel boost-expiry implementations",

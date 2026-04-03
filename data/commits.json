@@ -1,6 +1,13 @@
 {
-  "generated_at": "2026-04-03T08:36:17.301Z",
+  "generated_at": "2026-04-03T11:25:38.895Z",
   "commits": [
+    {
+      "sha": "0f987c3",
+      "message": "[PS-1771] test | boost-expiry mambu failure alarm test (#346)",
+      "date": "2026-04-03",
+      "repo": "oaknorthbank/personal-savings-pricing",
+      "url": "https://github.com/oaknorthbank/personal-savings-pricing/commit/0f987c3a4290ebceac3cfe0925f354a7eba48269"
+    },
     {
       "sha": "f697560",
       "message": "[PS-1545] chore | boost-expiry: amend confirmation modal message (#3807)",
